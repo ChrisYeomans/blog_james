@@ -1,0 +1,22 @@
+<% if not admin_status %>
+	<%= controller.redirect_to '/' %>
+<% else %>
+	<h3 class="text-center">Name: <%= @msg.name %></h3>
+	<h3 class="text-center">Email: <%= @msg.email %></h3>
+	<div class="container">
+		<p>
+			<%= @msg.msg %>
+		</p>
+	</div>
+	<%= link_to "Delete", message_path(@msg),
+					method: :delete,
+					data: {confirm: "Are you sure you want to delete this message?"}, 
+					:class => "btn btn-danger" %>
+	<%= link_to "Mark Unread", message_path(@msg)+"/unread",
+					method: :post,
+					:class => "btn btn-primary" %>
+	<br /><br />
+	<%= link_to "Messages", "/dashboard/messages",
+					method: :get,
+					:class => "btn btn-success" %>
+<% end %>

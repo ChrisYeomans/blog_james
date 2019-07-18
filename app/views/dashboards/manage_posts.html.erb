@@ -1,18 +1,18 @@
 <% if not admin_status %>
 	<%= controller.redirect_to '/' %>
 <% else %>
-<div class="text-center">
-	<% @title="Manage Posts" %>
-	<h1 class="text-center p-1">Manage Posts</h1>
-	<% Post.all.each do |post| %>
-		<span class="h3"><%= link_to post.title, post_path(post) %></span>
-		<% if post.is_hidden == 1 %>
-			Hidden
+	<div class="text-center">
+		<% @title="Manage Posts" %>
+		<h1 class="text-center p-1">Manage Posts</h1>
+		<% Post.all.each do |post| %>
+			<span class="h3"><%= link_to post.title, post_path(post) %></span>
+			<% if post.is_hidden == 1 %>
+				Hidden
+			<% end %>
+			<% if post.is_featured == 1 %>
+				Featured
+			<% end %>
+			<br />
 		<% end %>
-		<% if post.is_featured == 1 %>
-			Featured
-		<% end %>
-		<br />
-	<% end %>
-</div>
+	</div>
 <% end %>

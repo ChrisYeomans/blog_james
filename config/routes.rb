@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 	resources :posts
 	get "/past_posts", to: "posts#past_posts"
 
+	# message routes
+	resources :messages
+	get "/contact_me", to: "messages#new"
+
     # dashboard
 	get "/dashboard", to: "dashboards#index"
 
@@ -24,5 +28,9 @@ Rails.application.routes.draw do
 	    post "/posts/:id/feat", to: "posts#make_featured"
 	    post "/posts/:id/hdn", to: "posts#make_hidden"
 	    post "/posts/:id/not_feat", to: "posts#make_not_featured"
+
+	    # messages
+	    get "/dashboard/messages", to: "dashboards#messages"
+	    post "messages/:id/unread", to: "messages#make_unread"
 
 end
