@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	# It's funny to hear ruby talking about.... "routes"
+
+	# root page
+	root "posts#index"
+	get '/', to: "posts#index"
+	get "/index", to: "posts#index"
+
+	# posts routes
+	resources :posts
 end
