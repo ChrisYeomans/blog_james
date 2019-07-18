@@ -1,0 +1,13 @@
+<div class="text-center">
+	<% @title="Past Posts" %>
+	<h1 class="text-center p-1">Past Posts</h1>
+	<br />
+	<% Post.all.reverse_each do |post| %>
+		<% if post.is_hidden == 0 %>
+			<span class="h3"><%= link_to post.title, post_path(post) %></span>
+			<br />
+			<span class="h5"><%= post.tag_line %></span>
+			<br />
+		<% end %>
+	<% end %>
+</div>

@@ -27,11 +27,24 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if admin_status %>
+            <li class="navbar-item"><a class="nav-link" href="/logout">Logout</a></li>
             <li class="navbar-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
           <% end %>
         </ul>
       </div>
     </nav>
-    <%= yield %>
+    <div class="container p-5">
+      <% if flash[:notice] %>
+        <div class="alert alert-danger text-center">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:succ] %>
+        <div class="alert alert-success text-center">
+          <%= flash[:succ] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

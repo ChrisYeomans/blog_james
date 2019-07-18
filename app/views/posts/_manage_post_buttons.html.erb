@@ -1,0 +1,25 @@
+<%= link_to "Edit", edit_post_path(@post), :class => "btn btn-primary" %>
+<%= link_to "Delete", post_path(@post),
+					method: :delete,
+					data: {confirm: "Are you sure you want to delete this post?"}, 
+					:class => "btn btn-danger" %>
+<br />
+<br />
+<%= link_to "Make Not Hidden", post_path(@post)+"/not_hdn",
+					method: :post,
+					data: {confirm: "Are you sure?"}, 
+					:class => "btn btn-primary" %>
+<%= link_to "Make Hidden", post_path(@post)+"/hdn",
+					method: :post,
+					data: {confirm: "Are you sure?"}, 
+					:class => "btn btn-primary" %>
+<br />
+<br />
+<%= link_to "Make Featured post", post_path(@post)+"/feat",
+					method: :post,
+					data: {confirm: "Are you sure?"}, 
+					:class => "btn btn-primary" %>
+<%= link_to "Make Not featured post", post_path(@post)+"/not_feat",
+					method: :post,
+					data: {confirm: "Are you sure?"}, 
+					:class => "btn btn-primary" %>

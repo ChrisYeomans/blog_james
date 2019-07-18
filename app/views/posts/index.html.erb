@@ -1,1 +1,12 @@
-<% @title = "James' Blog" %>
+<% @title = "Jim's Blog" %>
+<div class="text-left p-4">
+	<% Post.all.each do |post| %>
+		<% if post.is_featured == 1 %>
+			<h3 class="text-center"><%= post.title %></h3>
+			<p class="text-center"><%= post.tag_line %></p>
+			<br />
+			<%= render plain: @markdown.render(post.body).html_safe %>
+			<% break %>
+		<% end %>
+	<% end%>
+</div>

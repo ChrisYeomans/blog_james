@@ -1,5 +1,5 @@
 module PostsHelper
 	def admin_status
-		true
+		session[:auth]
 	end
 end

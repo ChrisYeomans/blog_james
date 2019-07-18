@@ -1,0 +1,12 @@
+<% if not admin_status %>
+	<%= controller.redirect_to '/' %>
+<% else %>
+	
+	<% @title="Dashboard" %>
+	<h1 class="text-center">Dashboard</h1>
+	<div class="container jumbotron p-5 text-center">
+		<a class="btn btn-primary" href="/posts/new" role="button">Create Post</a>
+		<a class="btn btn-primary" href="/dashboard/manage_posts" role="button">Manage Posts</a>
+	</div>
+	
+<% end %>

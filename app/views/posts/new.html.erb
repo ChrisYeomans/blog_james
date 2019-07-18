@@ -1,0 +1,38 @@
+<% if not admin_status %>
+	<%= controller.redirect_to '/' %>
+<% else %>
+	
+	<% @title="Create Post" %>
+	<h1 class="text-center">Create Post</h1>
+	<div class="container text-center">
+		<% if @post %>
+	        <% @post.errors.full_messages.each do |msg| %>
+	            <div class="alert alert-danger">
+	            	<%= msg %>
+	            </div>
+	        <% end %>
+	    <% end %>
+		<%= form_for :post, url: posts_path do |f| %>
+			<%= f.label(:title, "Title") %><br />
+			<%= f.text_field(:title, size: "98x2") %>
+			<br /><br />
+			<%= f.label(:tag_line, "Tag Line") %><br />
+			<%= f.text_field(:tag_line, size: "98x2") %>
+			<br /><br /><br />
+			<%= f.label(:body, "Body") %><br />
+			<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">
+				Markdown Cheatsheet
+			</a><br /><br />
+			<%= f.text_area(:body, size: "100x15") %>
+			<br />
+			<%= f.check_box(:is_featured) %>
+			<%= f.label(:is_featured, "Make this the featured post") %>
+			<br />
+			<%= f.check_box(:is_hidden) %>
+			<%= f.label(:is_hidden, "Make this hidden") %>
+			<br />
+			<%= f.submit "Submit" %>
+		<% end %>
+	</div>
+
+<% end %>
