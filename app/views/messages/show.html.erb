@@ -1,6 +1,7 @@
 <% if not admin_status %>
 	<%= controller.redirect_to '/' %>
 <% else %>
+<% @title = @msg.name %>
 	<h3 class="text-center">Name: <%= @msg.name %></h3>
 	<h3 class="text-center">Email: <%= @msg.email %></h3>
 	<div class="container">
